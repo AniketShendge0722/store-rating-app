@@ -1,3 +1,11 @@
+<img width="1919" height="971" alt="Screenshot 2026-05-25 174946" src="https://github.com/user-attachments/assets/2fc6e3e6-d1ca-421b-b14b-bbc96023404e" />
+<img width="1839" height="726" alt="Screenshot 2026-05-25 175039" src="https://github.com/user-attachments/assets/03e0b9b8-0705-45f1-a3e0-91ef18edea73" />
+<img width="1919" height="1079" alt="Screenshot 2026-05-25 175137" src="https://github.com/user-attachments/assets/feb8122f-8964-4f3c-9df6-23f7c701ce50" />
+<img width="1918" height="1057" alt="manage store" src="https://github.com/user-attachments/assets/2daa5835-b910-41a8-bf92-fdb399697663" />
+<img width="1918" height="1058" alt="manage ratings" src="https://github.com/user-attachments/assets/bf192a8c-d49c-4f61-8cdd-0499ef973f70" />
+<img width="1919" height="953" alt="Screenshot 2026-05-25 185329" src="https://github.com/user-attachments/assets/aa2a1c34-1108-49a4-b72b-749511f408ad" />
+<img width="1902" height="932" alt="add" src="https://github.com/user-attachments/assets/1f6ae51d-8c81-4f68-aff5-be1d72983856" />
+<img width="1918" height="952" alt="Screenshot 2026-05-25 185329" src="https://github.com/user-attachments/assets/994f4c39-d8ee-4b54-a396-afd6c9a1be40" />
 # Store Rating Management System
 
 A Full Stack Store Rating Application built using:
