@@ -22,11 +22,15 @@ import ManageUsers from "./pages/admin/ManageUsers";
 
 import Ratings from "./pages/admin/Ratings";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
   return (
     <BrowserRouter>
 
       <Routes>
+
+        {/* PUBLIC ROUTES */}
 
         <Route
           path="/"
@@ -38,50 +42,74 @@ function App() {
           element={<Signup />}
         />
 
+
+
+        {/* USER ROUTES */}
+
         <Route
           path="/stores"
-          element={<Stores />}
+          element={
+            <ProtectedRoute>
+              <Stores />
+            </ProtectedRoute>
+          }
         />
+
+
+
+        {/* ADMIN ROUTES */}
 
         <Route
           path="/admin"
           element={
-            <AdminDashboard />
+            <ProtectedRoute role="ADMIN">
+              <AdminDashboard />
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/admin/stores"
           element={
-            <AdminStores />
+            <ProtectedRoute role="ADMIN">
+              <AdminStores />
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/admin/create-store"
           element={
-            <CreateStore />
+            <ProtectedRoute role="ADMIN">
+              <CreateStore />
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/admin/edit-store/:id"
           element={
-            <EditStore />
+            <ProtectedRoute role="ADMIN">
+              <EditStore />
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/admin/users"
           element={
-            <ManageUsers />
+            <ProtectedRoute role="ADMIN">
+              <ManageUsers />
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/admin/ratings"
           element={
-            <Ratings />
+            <ProtectedRoute role="ADMIN">
+              <Ratings />
+            </ProtectedRoute>
           }
         />
 

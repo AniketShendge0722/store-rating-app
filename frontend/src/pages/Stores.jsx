@@ -7,6 +7,7 @@ import {
   Container,
   Typography,
   Grid,
+  TextField,
 } from "@mui/material";
 
 import Navbar from "../components/Navbar";
@@ -20,6 +21,14 @@ const Stores = () => {
   const [stores, setStores] =
     useState([]);
 
+  const [search, setSearch] =
+    useState("");
+
+
+
+  // =========================
+  // FETCH STORES
+  // =========================
   const fetchStores =
     async () => {
       try {
@@ -41,15 +50,26 @@ const Stores = () => {
         setStores(
           res.data
         );
+
       } catch (error) {
         console.log(error);
       }
     };
 
+
+
+  // =========================
+  // LOAD STORES
+  // =========================
   useEffect(() => {
     fetchStores();
   }, []);
 
+
+
+  // =========================
+  // HANDLE RATING
+  // =========================
   const handleRating =
     async (
       store_id,
@@ -74,12 +94,18 @@ const Stores = () => {
           }
         );
 
+        alert(
+          "Rating Submitted"
+        );
+
         fetchStores();
 
       } catch (error) {
         console.log(error);
       }
     };
+
+
 
   return (
     <>
@@ -88,19 +114,54 @@ const Stores = () => {
       <Container
         sx={{ mt: 4 }}
       >
+
+        {/* PAGE TITLE */}
         <Typography
           variant="h4"
           mb={4}
+          fontWeight="bold"
         >
           Stores
         </Typography>
 
+
+
+        {/* SEARCH BAR */}
+        <TextField
+          fullWidth
+          label="Search Stores By Name or Address"
+          variant="outlined"
+          sx={{ mb: 4 }}
+          onChange={(e) =>
+            setSearch(
+              e.target.value
+            )
+          }
+        />
+
+
+
+        {/* STORE LIST */}
         <Grid
           container
           spacing={3}
         >
-          {stores.map(
-            (store) => (
+          {stores
+            .filter(
+              (store) =>
+                store.name
+                  .toLowerCase()
+                  .includes(
+                    search.toLowerCase()
+                  ) ||
+
+                store.address
+                  .toLowerCase()
+                  .includes(
+                    search.toLowerCase()
+                  )
+            )
+            .map((store) => (
               <Grid
                 item
                 xs={12}
@@ -114,9 +175,9 @@ const Stores = () => {
                   }
                 />
               </Grid>
-            )
-          )}
+            ))}
         </Grid>
+
       </Container>
     </>
   );

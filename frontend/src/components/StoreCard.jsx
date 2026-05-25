@@ -13,6 +13,7 @@ const StoreCard = ({
   store,
   handleRating,
 }) => {
+
   return (
     <Card
       sx={{
@@ -21,51 +22,64 @@ const StoreCard = ({
       }}
     >
       <CardContent>
+
         <Typography variant="h5">
           {store.name}
         </Typography>
 
-        <Typography>
+        <Typography sx={{ mt: 1 }}>
           {store.address}
         </Typography>
 
-        <Typography mt={2}>
+        <Typography sx={{ mt: 2 }}>
           Average Rating:
           {" "}
           {store.average_rating || 0}
         </Typography>
 
+        {/* STARS */}
         <Box
           sx={{
             display: "flex",
-            mt: 2,
             gap: 1,
+            mt: 2,
           }}
         >
           {[1, 2, 3, 4, 5].map(
-            (star) => (
+            (num) => (
               <StarIcon
-                key={star}
+                key={num}
                 onClick={() =>
                   handleRating(
                     store.id,
-                    star
+                    num
                   )
                 }
                 sx={{
                   cursor: "pointer",
+                  fontSize: 35,
+
                   color:
-                    star <=
+                    num <=
                     Number(
-                      store.user_rating
+                      store.average_rating
                     )
-                      ? "gold"
-                      : "gray",
+                      ? "#FFD700"
+                      : "#C0C0C0",
+
+                  transition:
+                    "0.3s",
+
+                  "&:hover": {
+                    transform:
+                      "scale(1.2)",
+                  },
                 }}
               />
             )
           )}
         </Box>
+
       </CardContent>
     </Card>
   );
